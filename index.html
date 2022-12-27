@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Decodificador</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+<body>
+    <!-- header -->
+    <header>
+        <h1 class="img-1" > a </h1>
+        <h2 class="titulo" >Criptografador</h2>  
+    </header>
+    <hr size = "6px" color="whitesmock" >
+    <!-- main -->
+    <main>
+        <input class="input" id="input-texto" type="text" placeholder="Digite seu texto aqui!">
+                
+        <div id="outInput">
+            <img class="back" src="imagens/backcodificado.jpg" alt="Decodificador">
+        </div>
+    </main> 
+
+    <div class="aviso">
+        <p>Apenas letras minusculas e sem acento</p>
+     </div>
+    <!-- main2 -->
+    <main2>
+        <div class="button">
+            <!-- botão 1 -->
+            <button class="btn-1" onclick="criptografar()" id="criptografar.btn">Criptografar</button>
+            <!-- botão 2  -->
+            <button class="btn-2" onclick="descriptografar()" id="descriptografar.btn">Descriptografar</button>
+            <!-- botão 3  -->
+            <button class="btn-3" onclick="copiar()"> Copiar resultado</button>
+            <!-- botão 4  -->
+            <!-- <button class="btn-4" onclick="apagar()">Apagar codificações</button> -->
+            <!-- botão 5  -->
+        </div>
+
+    </main2>
+
+    <!-- footer -->
+
+    <footer>
+        
+        <p>DiegoSantossan</p>
+        <img logo>
+        <a class="link-1"href="https://www.linkedin.com/in/diegosantossan/"><p>Linkdin</p></a>
+        <a class="link-2"href="https://github.com/DiegoSantossan"><p>Meu git-hub </p></a>
+
+    </footer>
+    <!-- criptografia -->
+
+    <script>
+
+var textInput = document.querySelector("#input-texto");
+var outInput = document.querySelector("#outInput");
+
+
+function criptografar(){
+
+    var texto = textInput.value;
+
+    var resultCripto = texto.replace
+    (/e/g, "enter")
+    .replace(/i/g, "imes")
+    .replace(/a/g, "ai")
+    .replace(/o/g, "ober")
+    .replace(/u/g, "ufat")
+
+
+  document.getElementById('outInput').innerHTML = '<textarea readonly id="outInput-texto">' + resultCripto + 
+  '</textarea>';
+// document.getElementById('outInput').innerHTML = "<input type='text' id='outInput-texto' value="+ resultCripto + ">"
+}
+
+function descriptografar(){
+
+    var texto = textInput.value;
+
+    var resultDescripto = texto.replace
+    (/enter/g, "e")
+    .replace(/imes/g, "i")
+    .replace(/ai/g, "a")
+    .replace(/ober/g, "o")
+    .replace(/ufat/g, "u");
+
+    document.getElementById('outInput').innerHTML = '<textarea readonly id="outInput-texto">' + resultDescripto + 
+    '</textarea>';
+}
+
+function copiar() {
+    var textoCop = document.getElementById("outInput-texto");
+
+    textoCop.select(outInput);
+    document.execCommand('copy');
+    alert("copiado");
+}  
+
+// function apagar() {
+//     var resultado = outInput-texto 
+
+    
+
+// }
+function typeWriter(elemento) {
+    const textoArray = elemento.innerHTML.split('');
+    elemento.innerHTML = '';
+    textoArray.forEach((letra, i) => {
+      setTimeout(() => elemento.innerHTML += letra, 75 * i);
+    });
+  }
+
+const titulo = document.querySelector('h2');
+  typeWriter(titulo);
+
+
+
+    </script>
+</body>
+</html>
